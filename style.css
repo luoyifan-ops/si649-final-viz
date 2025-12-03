@@ -1,19 +1,97 @@
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10 !important;
+    pointer-events: none;   /* 防止遮挡点击 */
+}
+
+/* 把最上面的 body 改成这样（合并在一个 body 里）*/
 body {
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #fafafa;
-    line-height: 1.7;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #F2EBFF, #FFFFFF, #E8D3FF);
+    background-size: 400% 400%;
+    animation: gradientFlow 12s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 全局标题样式 */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    color: #3D2B78;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+}
+
+/* 小标题 */
+h2 {
+    font-family: 'Inter', sans-serif;
+    color: #2f2a48;
+    font-size: 32px;
+    margin-bottom: 12px;
 }
 
 /* Hero header */
+/* hero 区域 */
 .hero {
-    background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80");
-    background-size: cover;
-    background-position: center;
-    padding: 120px 20px;
-    text-align: center;
-    color: white;
+    position: relative;
+    width: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2020/05/17/13/47/mental-health-5181673_1280.png");
+    background-size: 800px auto;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding: 20px 0;  /* 只上下留空，左右不要加padding */
+}
+
+.hero-center {
+    text-align: left;     /* ✅ 文字和正文对齐 */
+}
+
+
+
+/* 你的文字（放在遮罩上面） */
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    color: #2D245A;
+
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.55); /* ← 字后面的半透明高亮底色 */
+    border-radius: 10px; /* ← 你想要的 highlight 效果 */
+}
+
+.hero-text p {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 1.45;
+
+    display: inline-block;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 8px;
+}
+
+/* 标题小块背景 */
+.title-bg h1,
+.title-bg p {
+    background: rgba(255,255,255,0.55); /* 白色淡透明背景 */
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 12px;
 }
 
 .hero-text h1 {
@@ -29,6 +107,14 @@ body {
     opacity: 0.9;
 }
 
+.hero-center p {
+    background: rgba(255, 255, 255, 0.25); /* ✅ 更透明 */
+    display: inline-block;
+    padding: 6px 8px;                    /* ✅ 更贴合文字 */
+    border-radius: 6px;                  /* ✅ 更小圆角 */
+    backdrop-filter: blur(1px);          /* 可选，低强度磨砂 */
+}
+
 /* Section */
 .section {
     max-width: 900px;
@@ -42,9 +128,12 @@ body {
     color: #223;
 }
 
+/* 段落淡紫色背景框 */
 .section p {
-    font-size: 18px;
-    margin-bottom: 25px;
+    background: rgba(200, 180, 255, 0.18); /* 淡淡紫色透明底 */
+    padding: 18px 22px;
+    border-radius: 14px;
+    line-height: 1.6;
 }
 
 /* Tableau Viz box */
@@ -58,10 +147,71 @@ body {
 
 /* Footer */
 footer {
+    background: none; /* 🚫 去掉灰色底色 */
     text-align: center;
-    padding: 30px;
-    background: #333;
-    color: white;
-    margin-top: 60px;
     font-size: 14px;
+    color: rgba(120, 80, 200, 0.4); /* ✅ 淡淡的紫色 */
+    padding: 24px 0;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
 }
+
+footer p {
+    color:  #b59fe5;
+    font-size: 16px; /* 小字体 */
+    opacity: 0.7; /* 更轻一点 */
+    margin: 0;
+}
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 450px;
+    left: 20px;
+    width: 150px;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 18px 20px;
+
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+
+    z-index: 999;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #3A2A6A;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* 让整页内容居中，而不是偏左 */
+.main-content {
+    max-width:1150px;      /* ⭐ 控制宽度 */
+    margin: 0 auto;        /* ⭐ 居中 */
+    padding: 40px 10px;    /* ⭐ 内边距，美观 */
+    line-height: 1.7;      /* ⭐ 可选：增加可读性 */
+}
+
+
+/* 初始隐藏 */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 开始显示（由 JS 添加） */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
