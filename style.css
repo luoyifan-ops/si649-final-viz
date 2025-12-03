@@ -130,21 +130,13 @@ h2 {
     line-height: 1.6;
 }
 
-/* Tableau Viz box */
-.viz {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-}
 
 /* Footer */
 footer {
     background: none;
     text-align: center;
     font-size: 14px;
-    color: rgba(120, 80, 200, 0.4); 
+    color: rgba(120, 80, 200, 0.4);
     padding: 24px 0;
     font-weight: 300;
     font-family: 'Poppins', sans-serif;
