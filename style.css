@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #fafafa;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Hero header */
+.hero {
+    background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80");
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+/* Section */
+.section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.section h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #223;
+}
+
+.section p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* Tableau Viz box */
+.viz {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #333;
+    color: white;
+    margin-top: 60px;
+    font-size: 14px;
+}

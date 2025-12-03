@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Mental Health Trends in 2021</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER SECTION ================= -->
+<header class="hero">
+    <div class="hero-text">
+        <h1>Reddit Mental Health Trends in 2021</h1>
+        <p>Exploring conversations across Anxiety, Depression, Loneliness, MentalHealth, and SuicideWatch communities.</p>
+    </div>
+</header>
+
+
+<!-- ================= EXECUTIVE SUMMARY ================= -->
+<section class="section">
+    <h2>Executive Summary</h2>
+    <p>
+        This visualization article analyzes one year of Reddit mental health discussions across five major subreddits. 
+        Through heatmaps, bar charts, bubble charts, and TF–IDF keyword exploration, the goal is to understand 
+        how mental health conversations fluctuate over time, which topics dominate each community, and what emotional 
+        patterns emerge.
+    </p>
+</section>
+
+
+<!-- ================= HEATMAP SECTION ================= -->
+<section class="section">
+    <h2>Monthly Activity Heatmap</h2>
+    <p>
+        The heatmap highlights which subreddits were the most active each month. This gives 
+        a quick understanding of seasonal peaks and sudden drops in activity across communities.
+    </p>
+
+    <!-- ⭐ PASTE HEATMAP TABLEAU EMBED CODE HERE -->
+   <div class="viz">
+
+    <div class='tableauPlaceholder' id='viz1764747949092' style='position: relative'>
+        <noscript><a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
+        <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+            <param name='embed_code_version' value='3' /> 
+            <param name='site_root' value='' />
+            <param name='name' value='vis_final_heatmap/Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+        </object>
+    </div>
+
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1764747949092');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+
+        vizElement.style.width = '100%';
+        vizElement.style.minWidth = '100%';
+        vizElement.style.maxWidth = '100%';
+
+        /* 调一个你喜欢的高度：900〜1300都可以 */
+        vizElement.style.height = '900px';
+        vizElement.style.minHeight = '900px';
+        vizElement.style.maxHeight = '1300px';
+
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+</div>
+</section>
+
+
+<!-- ================= VOLUME + SCORE SECTION ================= -->
+<section class="section">
+    <h2>Posting Volume + Average Score</h2>
+    <p>
+        These paired bar charts show posting frequency (volume) and average engagement (score).
+        Together, they illustrate not only when people post more, but also when posts are more appreciated or helpful.
+    </p>
+
+    <!-- Volume chart -->
+
+<div class='tableauPlaceholder' id='viz1764748544904' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Dashboard 2'
+                src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1_rss.png'
+                style='border: none' />
+        </a>
+    </noscript>
+
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='vis_final_heatmap/Dashboard2' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image'
+            value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1764748544904');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+    /* 修正显示不完整的问题：宽度=100%，高度手动调大 */
+    vizElement.style.width = '100%';
+    vizElement.style.minWidth = '100%';
+    vizElement.style.maxWidth = '100%';
+
+    vizElement.style.height = '850px';   /* 可调整 */
+    vizElement.style.minHeight = '850px';
+    vizElement.style.maxHeight = '1200px';
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+
+
+
+<!-- ================= BUBBLE + LINE SECTION ================= -->
+<section class="section">
+    <h2>Posting Volume vs Score + Monthly Score Trends</h2>
+    <p>
+        The bubble chart visualizes the relationship between posting frequency and average score, 
+        helping identify low-volume but highly engaging communities and vice versa.
+        The line chart shows how emotional tone (engagement) changes across the year.
+    </p>
+
+<div class='tableauPlaceholder' id='viz1764748570490' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Dashboard 3'
+                src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard3/1_rss.png'
+                style='border:none' />
+        </a>
+    </noscript>
+
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='vis_final_heatmap/Dashboard3' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image'
+            value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard3/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1764748570490');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+    /* 修复宽度 + 高度 */
+    vizElement.style.width = '100%';
+    vizElement.style.minWidth = '100%';
+    vizElement.style.maxWidth = '100%';
+
+    vizElement.style.height = '1100px'; /* 调大一些，因为 bubble + line 比较高 */
+    vizElement.style.minHeight = '1100px';
+    vizElement.style.maxHeight = '1500px';
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+</section>
+
+
+
+<!-- ================= FINAL TAKEAWAY ================= -->
+<section class="section">
+    <h2>Final Takeaway</h2>
+    <p>
+        Across 2021, Reddit mental health communities showed clear seasonal trends, 
+        medication-centered discussions, and varying emotional tones. 
+        These insights reflect how online spaces respond to stress, crisis, and support needs throughout the year.
+    </p>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>Created by Yifan Luo for SI 649 Data Visualization</p>
+</footer>
+
+</body>
+</html>
