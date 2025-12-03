@@ -17,7 +17,7 @@
         <a href="#heatmap">Heatmap</a>
         <a href="#volume">Volume and Score</a>
         <a href="#bubble">Community Insights</a>
-        <a href="#final">Final Takeaway</a>
+        <a href="#final">What We Learn</a>
     </nav>
 
     <!-- HEADER SECTION -->
@@ -49,7 +49,7 @@
 
         <!-- ================= HEATMAP SECTION ================= -->
         <section class="section" id="heatmap">
-            <h2>Monthly Activity Heatmap</h2>
+            <h2>Monthly Emotional Tone Heatmap Across Subreddits</h2>
             <p>
                 The heatmap reveals how emotional tone changes month by month across five mental health communities.
                 Darker colors indicate posts with more negative sentiment, signaling moments when users express higher levels of distress. 
@@ -60,60 +60,80 @@
             </p>
 
             <!-- PASTE HEATMAP TABLEAU EMBED CODE HERE -->
-        <div class="viz">
-            <div class="viz-wrapper">
-            <div class='tableauPlaceholder' id='viz1764763709797'>
-                <noscript>
-                <a href='#'>
-                    <img alt='Dashboard 1'
-                        src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png'
-                        style='border: none' />
-                </a>
-                </noscript>
-                <object class='tableauViz' style='width: 100%; height: 100%;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='vis_final_heatmap/Dashboard1' />
-                <param name='tabs' value='no' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-                <param name='filter' value='publish=yes' />
-                </object>
-            </div>
-            </div>
+        <div class='tableauPlaceholder' id='vizDashboard1' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Dashboard 1'
+                 src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png'
+                 style='border: none' />
+        </a>
+    </noscript>
 
-            <script type='text/javascript'>
-            var divElement = document.getElementById('viz1764763709797');
-            var vizElement = divElement.getElementsByTagName('object')[0];
+   <div class="tableauPlaceholder" id="viz1764766906034" style="position: relative">
+  <noscript>
+    <a href="#">
+      <img 
+        alt="Dashboard 1"
+        src="https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png"
+        style="border: none"
+      />
+    </a>
+  </noscript>
 
-            // Set responsive dimensions
-            vizElement.style.width = '100%';
-            vizElement.style.height = '100%';
-            vizElement.style.minWidth = '300px';
-            vizElement.style.minHeight = '600px';
-            vizElement.style.maxWidth = '100%';
-            vizElement.style.maxHeight = '1200px';
+  <object class="tableauViz" style="display:none;">
+    <param name="host_url" value="https://public.tableau.com/" />
+    <param name="embed_code_version" value="3" />
+    <param name="site_root" value="" />
 
-            // Insert Tableau script
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
+    <param name="name" value="vis_final_heatmap/Dashboard1" />
+    <param name="tabs" value="no" />
+    <param name="toolbar" value="yes" />
 
-    </div>
+    <param name="static_image" 
+      value="https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1.png" 
+    />
+
+    <param name="animate_transition" value="yes" />
+    <param name="display_static_image" value="yes" />
+    <param name="display_spinner" value="yes" />
+    <param name="display_overlay" value="yes" />
+    <param name="display_count" value="yes" />
+    <param name="language" value="en-US" />
+    <param name="filter" value="publish=yes" />
+  </object>
+</div>
+
+<script type="text/javascript">
+  var divElement = document.getElementById("viz1764766906034");
+  var vizElement = divElement.getElementsByTagName("object")[0];
+
+  if (divElement.offsetWidth > 800) {
+    vizElement.style.width = "920px";
+    vizElement.style.minHeight = "587px";
+    vizElement.style.maxHeight = "887px";
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
+  } else if (divElement.offsetWidth > 500) {
+    vizElement.style.width = "920px";
+    vizElement.style.minHeight = "587px";
+    vizElement.style.maxHeight = "887px";
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
+  } else {
+    vizElement.style.width = "100%";
+    vizElement.style.height = "727px";
+  }
+
+  var scriptElement = document.createElement("script");
+  scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+</div>
     </section>
 
 
     <!-- ================= VOLUME + SCORE SECTION ================= -->
     <section class="section" id="volume">
-        <h2>Posting Volume + Average Score</h2>
+        <h2>Posting Volume and Emotional Intensity Across Communities</h2>
         <p>
             These paired charts compare two essential dimensions of Reddit mental health conversations: how often people post and how emotionally charged those posts are.
             The bar chart highlights posting volume across months and communities. Some subreddits—such as Depression and Anxiety—maintain consistently high activity, suggesting large, stable communities engaging in ongoing emotional processing or daily conversation.
@@ -123,24 +143,84 @@
 
         <!-- Volume chart -->
 
-    <div class='tableauPlaceholder' id='viz1764748544904' style='position: relative'>
+    <div class='tableauPlaceholder' id='viz1764766351714' style='position:relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Dashboard 2'
+                src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1_rss.png'
+                style='border:none' />
+        </a>
+    </noscript>
+
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+        <param name='embed_code_version' value='3'/>
+        <param name='site_root' value=''/>
+        <param name='name' value='vis_final_heatmap/Dashboard2'/>
+        <param name='tabs' value='no'/>
+        <param name='toolbar' value='yes'/>
+        <param name='static_image'
+               value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1.png'/>
+        <param name='animate_transition' value='yes'/>
+        <param name='display_static_image' value='yes'/>
+        <param name='display_spinner' value='yes'/>
+        <param name='display_overlay' value='yes'/>
+        <param name='display_count' value='yes'/>
+        <param name='language' value='en-US'/>
+        <param name='filter' value='publish=yes'/>
+    </object>
+</div>
+
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1764766351714');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+    if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '900px';
+        vizElement.style.minHeight = '587px';
+        vizElement.style.maxHeight = '887px';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '900px';
+        vizElement.style.minHeight = '587px';
+        vizElement.style.maxHeight = '887px';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '727px';
+    }
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+
+
+
+    <!-- ================= BUBBLE + LINE SECTION ================= -->
+    <section class="section" id="bubble">
+        <h2>Monthly Sentiment Trends and Their Relationship to Posting Volume</h2>
+        <p>
+            While most communities cluster around lower average sentiment scores—reflecting routine emotional processing—a few months and subreddits stand out.
+            Some communities, such as Lonely and SuicideWatch, show noticeably higher emotional spikes during certain months, suggesting reactions to acute stressors or seasonal challenges.
+            In contrast, MentalHealth and Anxiety tend to remain more stable, indicating steady, ongoing support-seeking behavior rather than sudden bursts of emotional intensity.
+            By combining posting volume with sentiment patterns, this section highlights which communities are emotionally steady, which are volatile, and how these dynamics shift throughout the year.
+        </p>
+
+   <div class="viz">
+    <div class='tableauPlaceholder' id='viz1764765571152' style='position: relative'>
         <noscript>
             <a href='#'>
-                <img alt='Dashboard 2'
-                    src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1_rss.png'
-                    style='border: none' />
+                <img alt='Dashboard 3 ' src='https://public.tableau.com/static/images/5K/5K55G97JK/1_rss.png' style='border: none' />
             </a>
         </noscript>
-
         <object class='tableauViz' style='display:none;'>
             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
             <param name='embed_code_version' value='3' />
-            <param name='site_root' value='' />
-            <param name='name' value='vis_final_heatmap/Dashboard2' />
-            <param name='tabs' value='no' />
+            <param name='path' value='shared/5K55G97JK' />
             <param name='toolbar' value='yes' />
-            <param name='static_image'
-                value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1.png' />
+            <param name='static_image' value='https://public.tableau.com/static/images/5K/5K55G97JK/1.png' />
             <param name='animate_transition' value='yes' />
             <param name='display_static_image' value='yes' />
             <param name='display_spinner' value='yes' />
@@ -152,63 +232,23 @@
     </div>
 
     <script type='text/javascript'>
-        var divElement = document.getElementById('viz1764748544904');
+        var divElement = document.getElementById('viz1764765571152');
         var vizElement = divElement.getElementsByTagName('object')[0];
-
-        vizElement.style.width = '100%';
-        vizElement.style.minWidth = '100%';
-        vizElement.style.maxWidth = '100%';
-
-        vizElement.style.height = '850px';
-        vizElement.style.minHeight = '850px';
-        vizElement.style.maxHeight = '1200px';
-
+        if ( divElement.offsetWidth > 800 ) { 
+            vizElement.style.width='1020px';
+            vizElement.style.height='1287px';
+        } else if ( divElement.offsetWidth > 500 ) {
+            vizElement.style.width='1020px';
+            vizElement.style.height='1287px';
+        } else {
+            vizElement.style.width='100%';
+            vizElement.style.height='727px';
+        }
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
-
-
-
-
-
-    <!-- ================= BUBBLE + LINE SECTION ================= -->
-    <section class="section" id="bubble">
-        <h2>Posting Volume vs Score + Monthly Score Trends</h2>
-        <p>
-            While most communities cluster around lower average sentiment scores—reflecting routine emotional processing—a few months and subreddits stand out.
-            Some communities, such as Lonely and SuicideWatch, show noticeably higher emotional spikes during certain months, suggesting reactions to acute stressors or seasonal challenges.
-            In contrast, MentalHealth and Anxiety tend to remain more stable, indicating steady, ongoing support-seeking behavior rather than sudden bursts of emotional intensity.
-            By combining posting volume with sentiment patterns, this section highlights which communities are emotionally steady, which are volatile, and how these dynamics shift throughout the year.
-        </p>
-
-    <div class='tableauPlaceholder' id='viz1764748570490' style='position: relative'>
-        <noscript>
-            <a href='#'>
-                <img alt='Dashboard 3'
-                    src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard3/1_rss.png'
-                    style='border:none' />
-            </a>
-        </noscript>
-
-        <object class='tableauViz' style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-            <param name='embed_code_version' value='3' />
-            <param name='site_root' value='' />
-            <param name='name' value='vis_final_heatmap/Dashboard3' />
-            <param name='tabs' value='no' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image'
-                value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard3/1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='language' value='en-US' />
-            <param name='filter' value='publish=yes' />
-        </object>
-    </div>
+</div>
 
 <script type='text/javascript'>
     var divElement = document.getElementById('viz1764748570490');
@@ -233,7 +273,7 @@
 
 <!-- ================= FINAL TAKEAWAY ================= -->
 <section class="section" id="final">
-    <h2>Final Takeaway</h2>
+    <h2>What This Means for Online Mental Health Communities</h2>
     <p>
         Across 2021, Reddit mental health communities showed clear seasonal rhythms, shifting emotional tone, and diverse posting behaviors. Some communities maintained consistently heavy emotional expression, while others fluctuated in response to specific events or periods.
         These visualizations collectively illustrate how online spaces support individuals navigating stress, crisis, and emotional challenges. Understanding these patterns provides deeper insight into how digital communities respond to human emotional needs throughout the year.
