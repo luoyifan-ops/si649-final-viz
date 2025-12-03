@@ -5,10 +5,10 @@
     width: 100vw;
     height: 100vh;
     z-index: -10 !important;
-    pointer-events: none;   /* 防止遮挡点击 */
+    pointer-events: none;
 }
 
-/* 把最上面的 body 改成这样（合并在一个 body 里）*/
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(120deg, #F2EBFF, #FFFFFF, #E8D3FF);
@@ -22,7 +22,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 全局标题样式 */
+/* title */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 52px;
@@ -30,7 +30,7 @@ h1 {
     text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
 }
 
-/* 小标题 */
+/* subtitle */
 h2 {
     font-family: 'Inter', sans-serif;
     color: #2f2a48;
@@ -39,7 +39,6 @@ h2 {
 }
 
 /* Hero header */
-/* hero 区域 */
 .hero {
     position: relative;
     width: 100%;
@@ -47,16 +46,13 @@ h2 {
     background-size: 800px auto;
     background-repeat: no-repeat;
     background-position: center right;
-    padding: 20px 0;  /* 只上下留空，左右不要加padding */
+    padding: 20px 0;
 }
 
 .hero-center {
-    text-align: left;     /* ✅ 文字和正文对齐 */
+    text-align: left;
+
 }
-
-
-
-/* 你的文字（放在遮罩上面） */
 .hero-text {
     position: relative;
     z-index: 2;
@@ -70,8 +66,8 @@ h2 {
 
     display: inline-block;
     padding: 6px 12px;
-    background: rgba(255,255,255,0.55); /* ← 字后面的半透明高亮底色 */
-    border-radius: 10px; /* ← 你想要的 highlight 效果 */
+    background: rgba(255,255,255,0.55);
+    border-radius: 10px;
 }
 
 .hero-text p {
@@ -85,10 +81,9 @@ h2 {
     border-radius: 8px;
 }
 
-/* 标题小块背景 */
 .title-bg h1,
 .title-bg p {
-    background: rgba(255,255,255,0.55); /* 白色淡透明背景 */
+    background: rgba(255,255,255,0.55);
     display: inline-block;
     padding: 8px 16px;
     border-radius: 12px;
@@ -108,11 +103,11 @@ h2 {
 }
 
 .hero-center p {
-    background: rgba(255, 255, 255, 0.25); /* ✅ 更透明 */
+    background: rgba(255, 255, 255, 0.25);
     display: inline-block;
-    padding: 6px 8px;                    /* ✅ 更贴合文字 */
-    border-radius: 6px;                  /* ✅ 更小圆角 */
-    backdrop-filter: blur(1px);          /* 可选，低强度磨砂 */
+    padding: 6px 8px;
+    border-radius: 6px;
+    backdrop-filter: blur(1px);
 }
 
 /* Section */
@@ -128,9 +123,8 @@ h2 {
     color: #223;
 }
 
-/* 段落淡紫色背景框 */
 .section p {
-    background: rgba(200, 180, 255, 0.18); /* 淡淡紫色透明底 */
+    background: rgba(200, 180, 255, 0.18);
     padding: 18px 22px;
     border-radius: 14px;
     line-height: 1.6;
@@ -147,10 +141,10 @@ h2 {
 
 /* Footer */
 footer {
-    background: none; /* 🚫 去掉灰色底色 */
+    background: none;
     text-align: center;
     font-size: 14px;
-    color: rgba(120, 80, 200, 0.4); /* ✅ 淡淡的紫色 */
+    color: rgba(120, 80, 200, 0.4); 
     padding: 24px 0;
     font-weight: 300;
     font-family: 'Poppins', sans-serif;
@@ -158,8 +152,8 @@ footer {
 
 footer p {
     color:  #b59fe5;
-    font-size: 16px; /* 小字体 */
-    opacity: 0.7; /* 更轻一点 */
+    font-size: 16px;
+    opacity: 0.7;
     margin: 0;
 }
 
@@ -193,25 +187,23 @@ footer p {
     text-decoration: underline;
 }
 
-/* 让整页内容居中，而不是偏左 */
+
 .main-content {
-    max-width:1150px;      /* ⭐ 控制宽度 */
-    margin: 0 auto;        /* ⭐ 居中 */
-    padding: 40px 10px;    /* ⭐ 内边距，美观 */
-    line-height: 1.7;      /* ⭐ 可选：增加可读性 */
+    max-width:1150px;
+    margin: 0 auto;
+    padding: 40px 10px;
+    line-height: 1.7;
 }
 
 
-/* 初始隐藏 */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
-/* 开始显示（由 JS 添加） */
+
 .reveal.visible {
     opacity: 1;
     transform: translateY(0px);
 }
-

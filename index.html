@@ -13,7 +13,7 @@
 
     <nav class="sidebar">
         <h3>Contents</h3>
-        <a href="#summary">Summary</a>
+        <a href="#sum">Summary</a>
         <a href="#heatmap">Heatmap</a>
         <a href="#volume">Volume and Score</a>
         <a href="#bubble">Community Insights</a>
@@ -31,7 +31,6 @@
     </div>
     </header>
 
-    <!-- ⭐⭐ 用 main-content 包住所有正文 ⭐⭐ -->
     <div class="main-content">
 
         <!-- ================= EXECUTIVE SUMMARY ================= -->
@@ -60,7 +59,7 @@
                 This visualization establishes the foundation for understanding when emotional intensity rises and invites deeper investigation into which communities contribute most to these shifts.
             </p>
 
-            <!-- ⭐ PASTE HEATMAP TABLEAU EMBED CODE HERE -->
+            <!-- PASTE HEATMAP TABLEAU EMBED CODE HERE -->
         <div class="viz">
 
             <div class='tableauPlaceholder' id='viz1764747949092' style='position: relative'>
@@ -91,7 +90,6 @@
                 vizElement.style.minWidth = '100%';
                 vizElement.style.maxWidth = '100%';
 
-                /* 调一个你喜欢的高度：900〜1300都可以 */
                 vizElement.style.height = '900px';
                 vizElement.style.minHeight = '900px';
                 vizElement.style.maxHeight = '1300px';
@@ -149,12 +147,11 @@
         var divElement = document.getElementById('viz1764748544904');
         var vizElement = divElement.getElementsByTagName('object')[0];
 
-        /* 修正显示不完整的问题：宽度=100%，高度手动调大 */
         vizElement.style.width = '100%';
         vizElement.style.minWidth = '100%';
         vizElement.style.maxWidth = '100%';
 
-        vizElement.style.height = '850px';   /* 可调整 */
+        vizElement.style.height = '850px';
         vizElement.style.minHeight = '850px';
         vizElement.style.maxHeight = '1200px';
 
@@ -209,12 +206,12 @@
     var divElement = document.getElementById('viz1764748570490');
     var vizElement = divElement.getElementsByTagName('object')[0];
 
-    /* 修复宽度 + 高度 */
+
     vizElement.style.width = '100%';
     vizElement.style.minWidth = '100%';
     vizElement.style.maxWidth = '100%';
 
-    vizElement.style.height = '1100px'; /* 调大一些，因为 bubble + line 比较高 */
+    vizElement.style.height = '1100px';
     vizElement.style.minHeight = '1100px';
     vizElement.style.maxHeight = '1500px';
 
@@ -253,7 +250,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// 简单粒子效果
+
 let particles = [];
 for (let i = 0; i < 70; i++) {
     particles.push({
