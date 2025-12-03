@@ -22,13 +22,14 @@
 
     <!-- HEADER SECTION -->
     <header class="hero">
-    <div class="main-content">
-        <div class="hero-center">
-        <h1>Reddit Mental Health Trends in 2021</h1>
-        <p class="subtitle">Exploring conversations across Anxiety, Depression, Loneliness,
-        MentalHealth, and SuicideWatch communities.</p>
+        <canvas id="bgCanvas"></canvas>
+        <div class="main-content hero-center">
+            <h1>Reddit Mental Health Trends in 2021</h1>
+            <p class="subtitle">
+                Exploring conversations across Anxiety, Depression, Loneliness,
+                MentalHealth, and SuicideWatch communities.
+            </p>
         </div>
-    </div>
     </header>
 
     <div class="main-content">
@@ -288,63 +289,77 @@
 </footer>
 
 </body>
+
+
 <script>
-const canvas = document.getElementById("bgCanvas");
-const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
+    let particles = [];
+    for (let i = 0; i < 70; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 4 + 1,
+            speedX: Math.random() * 1 - 0.5,
+            speedY: Math.random() * 1 - 0.5
+        });
+    }
 
-let particles = [];
-for (let i = 0; i < 70; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 4 + 1,
-        speedX: Math.random() * 1 - 0.5,
-        speedY: Math.random() * 1 - 0.5
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+            ctx.fillStyle = "rgba(120,80,200,0.5)";
+            drawTriangle(p.x, p.y, p.size);
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    function drawTriangle(x, y, size) {
+        ctx.beginPath();
+        ctx.moveTo(x, y - size);
+        ctx.lineTo(x - size, y + size);
+        ctx.lineTo(x + size, y + size);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    animate();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const target = document.querySelector(".reveal");
+        setTimeout(() => {
+            target.classList.add("visible");
+        }, 300);
     });
-}
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    window.addEventListener('scroll', () => {
+        const fadeStart = 0;
+        const fadeEnd = 300;
+        const scrollY = window.scrollY;
 
-    particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-        ctx.fillStyle = "rgba(120,80,200,0.5)";
-        drawTriangle(p.x, p.y, p.size);
+        let opacity = 1;
+        if (scrollY > fadeStart) {
+            opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            opacity = Math.max(0, Math.min(1, opacity));
+        }
+        canvas.style.opacity = opacity;
     });
-
-    requestAnimationFrame(animate);
-}
-
-function drawTriangle(x, y, size) {
-    ctx.beginPath();
-    ctx.moveTo(x, y - size);
-    ctx.lineTo(x - size, y + size);
-    ctx.lineTo(x + size, y + size);
-    ctx.closePath();
-    ctx.fill();
-}
-
-animate();
-
-document.addEventListener("DOMContentLoaded", () => {
-    const target = document.querySelector(".reveal");
-    setTimeout(() => {
-        target.classList.add("visible");
-    }, 300);
-});
 </script>
 
 </html>
