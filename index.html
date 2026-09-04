@@ -22,7 +22,7 @@
         <div class="kicker">SI 649 · Information Visualization</div>
         <h1>Reddit Mental Health Trends in 2021</h1>
         <p class="sub">Exploring conversations across Anxiety, Depression, Loneliness, MentalHealth, and SuicideWatch communities.</p>
-        <div class="meta">Data source: <a href="https://www.kaggle.com/datasets/entenam/reddit-mental-health-dataset" target="_blank" rel="noopener">Kaggle — Reddit Mental Health Dataset</a></div>
+        <div class="meta">Data source: <a href="https://www.kaggle.com/datasets/entenam/reddit-mental-health-dataset" target="_blank" rel="noopener">Kaggle — Reddit Mental Health Dataset</a>. Charts rebuilt natively (no Tableau) from the original analysis.</div>
     </div>
 </header>
 
@@ -33,13 +33,12 @@
         <a href="#sum">Summary</a>
         <a href="#heatmap">Heatmap</a>
         <a href="#volume">Volume &amp; Score</a>
-        <a href="#bubble">Sentiment Trends</a>
+        <a href="#trends">Sentiment Trends</a>
         <a href="#final">Takeaway</a>
     </nav>
 
     <div>
 
-        <!-- ================= EXECUTIVE SUMMARY ================= -->
         <section class="block" id="sum" style="border-top:none;">
             <h2>Executive Summary</h2>
             <p>
@@ -52,215 +51,54 @@
             </p>
         </section>
 
-
-        <!-- ================= HEATMAP SECTION ================= -->
         <section class="block" id="heatmap">
             <h2>Monthly Emotional Tone Heatmap Across Subreddits</h2>
             <p>
-                The heatmap reveals how emotional tone changes month by month across five mental health communities.
-                Darker colors indicate posts with more negative sentiment, signaling moments when users express higher levels of distress.
-                A few clear patterns stand out.
-                Communities like Depression and SuicideWatch show consistently darker shades, suggesting a stable presence of heavier emotional expression.
-                Others, such as Lonely or MentalHealth, fluctuate more dramatically from month to month, hinting at responses to specific events, seasonal triggers, or shifts in user engagement.
-                This visualization establishes the foundation for understanding when emotional intensity rises and invites deeper investigation into which communities contribute most to these shifts.
+                The heatmap reveals how average sentiment changes month by month across five mental health communities.
+                Darker cells indicate posts with heavier, more negative sentiment.
+                Communities like Depression and SuicideWatch show a more consistent presence of heavier emotional expression, while Lonely spikes sharply in specific months and MentalHealth stays comparatively calm.
+                Hover any cell for the exact value.
             </p>
-
-            <div class="tableau-embed">
-            <div class='tableauPlaceholder' id='vizDashboard1' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='Dashboard 1'
-                             src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png'
-                             style='border: none' />
-                    </a>
-                </noscript>
-
-               <div class="tableauPlaceholder" id="viz1764766906034" style="position: relative">
-              <noscript>
-                <a href="#">
-                  <img
-                    alt="Dashboard 1"
-                    src="https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1_rss.png"
-                    style="border: none"
-                  />
-                </a>
-              </noscript>
-
-              <object class="tableauViz" style="display:none;">
-                <param name="host_url" value="https://public.tableau.com/" />
-                <param name="embed_code_version" value="3" />
-                <param name="site_root" value="" />
-
-                <param name="name" value="vis_final_heatmap/Dashboard1" />
-                <param name="tabs" value="no" />
-                <param name="toolbar" value="yes" />
-
-                <param name="static_image"
-                  value="https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard1/1.png"
-                />
-
-                <param name="animate_transition" value="yes" />
-                <param name="display_static_image" value="yes" />
-                <param name="display_spinner" value="yes" />
-                <param name="display_overlay" value="yes" />
-                <param name="display_count" value="yes" />
-                <param name="language" value="en-US" />
-                <param name="filter" value="publish=yes" />
-              </object>
-            </div>
-
-            <script type="text/javascript">
-              var divElement = document.getElementById("viz1764766906034");
-              var vizElement = divElement.getElementsByTagName("object")[0];
-
-              if (divElement.offsetWidth > 800) {
-                vizElement.style.width = "920px";
-                vizElement.style.minHeight = "587px";
-                vizElement.style.maxHeight = "887px";
-                vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
-              } else if (divElement.offsetWidth > 500) {
-                vizElement.style.width = "920px";
-                vizElement.style.minHeight = "587px";
-                vizElement.style.maxHeight = "887px";
-                vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
-              } else {
-                vizElement.style.width = "100%";
-                vizElement.style.height = "727px";
-              }
-
-              var scriptElement = document.createElement("script");
-              scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-              vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
-
-            </div>
+            <div class="chart-card">
+                <div class="chart-title">Average sentiment score by subreddit, Jan–Dec 2021</div>
+                <div id="chart-heatmap"></div>
+                <p class="chart-note">Darker = heavier average sentiment that month. Missing month: February (not present in the source data).</p>
             </div>
         </section>
 
-
-        <!-- ================= VOLUME + SCORE SECTION ================= -->
         <section class="block" id="volume">
             <h2>Posting Volume and Emotional Intensity Across Communities</h2>
             <p>
-                These paired charts compare two essential dimensions of Reddit mental health conversations: how often people post and how emotionally charged those posts are.
-                The bar chart highlights posting volume across months and communities. Some subreddits—such as Depression and Anxiety—maintain consistently high activity, suggesting large, stable communities engaging in ongoing emotional processing or daily conversation.
-                The line chart shows that higher posting volume does not always correspond to stronger emotional intensity. In many communities, thousands of posts per month coexist with relatively mild average sentiment scores. Others, particularly Lonely and SuicideWatch, display sharper changes in emotional tone despite moderate posting activity.
-                Together, these charts help distinguish communities that are active from those that are emotionally turbulent, adding nuance to the interpretation of mental health discussions online.
+                These paired series compare two essential dimensions of Reddit mental health conversations: how often people post, and how emotionally charged those posts are.
+                Total posting volume (bars) stays fairly high and stable through most of the year, dipping only in March.
+                The average sentiment line (gold) tells a different story — it spikes sharply in March even though volume is at its lowest point, showing that posting volume and emotional intensity don't move together.
             </p>
-
-            <div class="tableau-embed">
-            <div class='tableauPlaceholder' id='viz1764766351714' style='position:relative'>
-            <noscript>
-                <a href='#'>
-                    <img alt='Dashboard 2'
-                        src='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1_rss.png'
-                        style='border:none' />
-                </a>
-            </noscript>
-
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-                <param name='embed_code_version' value='3'/>
-                <param name='site_root' value=''/>
-                <param name='name' value='vis_final_heatmap/Dashboard2'/>
-                <param name='tabs' value='no'/>
-                <param name='toolbar' value='yes'/>
-                <param name='static_image'
-                       value='https://public.tableau.com/static/images/vi/vis_final_heatmap/Dashboard2/1.png'/>
-                <param name='animate_transition' value='yes'/>
-                <param name='display_static_image' value='yes'/>
-                <param name='display_spinner' value='yes'/>
-                <param name='display_overlay' value='yes'/>
-                <param name='display_count' value='yes'/>
-                <param name='language' value='en-US'/>
-                <param name='filter' value='publish=yes'/>
-            </object>
-            </div>
-
-            <script type='text/javascript'>
-                var divElement = document.getElementById('viz1764766351714');
-                var vizElement = divElement.getElementsByTagName('object')[0];
-
-                if (divElement.offsetWidth > 800) {
-                    vizElement.style.width = '900px';
-                    vizElement.style.minHeight = '587px';
-                    vizElement.style.maxHeight = '887px';
-                    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                } else if (divElement.offsetWidth > 500) {
-                    vizElement.style.width = '900px';
-                    vizElement.style.minHeight = '587px';
-                    vizElement.style.maxHeight = '887px';
-                    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-                } else {
-                    vizElement.style.width = '100%';
-                    vizElement.style.height = '727px';
-                }
-
-                var scriptElement = document.createElement('script');
-                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
+            <div class="chart-card">
+                <div class="chart-title">Monthly post volume vs. average sentiment score</div>
+                <div id="chart-combo"></div>
+                <div class="chart-legend">
+                    <div class="item"><span class="swatch" style="background:var(--accent-soft); border:1px solid var(--accent);"></span>Post volume (left axis)</div>
+                    <div class="item"><span class="swatch" style="background:var(--gold);"></span>Avg. sentiment (right axis)</div>
+                </div>
+                <p class="chart-note">Hover a bar or point for exact monthly figures.</p>
             </div>
         </section>
 
-
-        <!-- ================= BUBBLE + LINE SECTION ================= -->
-        <section class="block" id="bubble">
-            <h2>Monthly Sentiment Trends and Their Relationship to Posting Volume</h2>
+        <section class="block" id="trends">
+            <h2>Monthly Sentiment Trends by Subreddit</h2>
             <p>
-                While most communities cluster around lower average sentiment scores—reflecting routine emotional processing—a few months and subreddits stand out.
-                Some communities, such as Lonely and SuicideWatch, show noticeably higher emotional spikes during certain months, suggesting reactions to acute stressors or seasonal challenges.
-                In contrast, MentalHealth and Anxiety tend to remain more stable, indicating steady, ongoing support-seeking behavior rather than sudden bursts of emotional intensity.
-                By combining posting volume with sentiment patterns, this section highlights which communities are emotionally steady, which are volatile, and how these dynamics shift throughout the year.
+                While most communities cluster around lower average sentiment scores — reflecting routine emotional processing — a few months and subreddits stand out.
+                Lonely shows by far the sharpest spikes, in March and again in June, suggesting reactions to acute stressors or seasonal challenges.
+                MentalHealth and Anxiety stay comparatively steady, indicating ongoing support-seeking behavior rather than sudden bursts of emotional intensity.
             </p>
-
-            <div class="tableau-embed">
-            <div class="viz">
-            <div class='tableauPlaceholder' id='viz1764765571152' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='Dashboard 3 ' src='https://public.tableau.com/static/images/5K/5K55G97JK/1_rss.png' style='border: none' />
-                    </a>
-                </noscript>
-                <object class='tableauViz' style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' />
-                    <param name='path' value='shared/5K55G97JK' />
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image' value='https://public.tableau.com/static/images/5K/5K55G97JK/1.png' />
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='en-US' />
-                    <param name='filter' value='publish=yes' />
-                </object>
-            </div>
-
-            <script type='text/javascript'>
-                var divElement = document.getElementById('viz1764765571152');
-                var vizElement = divElement.getElementsByTagName('object')[0];
-                if ( divElement.offsetWidth > 800 ) {
-                    vizElement.style.width='1020px';
-                    vizElement.style.height='1287px';
-                } else if ( divElement.offsetWidth > 500 ) {
-                    vizElement.style.width='1020px';
-                    vizElement.style.height='1287px';
-                } else {
-                    vizElement.style.width='100%';
-                    vizElement.style.height='727px';
-                }
-                var scriptElement = document.createElement('script');
-                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
-            </div>
+            <div class="chart-card">
+                <div class="chart-title">Average sentiment score by subreddit, month by month</div>
+                <div id="chart-line"></div>
+                <div id="chart-line-legend" class="chart-legend"></div>
+                <p class="chart-note">Click a name in the legend to isolate that community's line. Hover a point for its exact value.</p>
             </div>
         </section>
 
-
-        <!-- ================= FINAL TAKEAWAY ================= -->
         <section class="block" id="final">
             <h2>What This Means for Online Mental Health Communities</h2>
             <p>
@@ -272,7 +110,6 @@
     </div>
 </div>
 
-<!-- ================= FOOTER ================= -->
 <footer>
     <div class="wrap">
         <p>Created by Yifan Luo for SI 649 Data Visualization.</p>
@@ -281,5 +118,6 @@
     </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
