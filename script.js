@@ -333,11 +333,17 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+
+        const children = entry.target.querySelectorAll('.reveal-child');
+        children.forEach((child, i) => {
+          setTimeout(() => child.classList.add('visible'), 150 + i * 140);
+        });
+
         if (!played.has(entry.target)) {
           played.add(entry.target);
-          if (entry.target.contains(heatmapEl)) animateHeatmap(heatmapSvg);
-          if (entry.target.contains(lineEl)) animateLineChart(lineSvg);
-          if (entry.target.contains(comboEl)) animateComboChart(comboSvg);
+          if (entry.target.contains(heatmapEl)) setTimeout(() => animateHeatmap(heatmapSvg), 150 + 1*140);
+          if (entry.target.contains(lineEl)) setTimeout(() => animateLineChart(lineSvg), 150 + 1*140);
+          if (entry.target.contains(comboEl)) setTimeout(() => animateComboChart(comboSvg), 150 + 1*140);
         }
       }
     });

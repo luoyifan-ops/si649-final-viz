@@ -97,6 +97,13 @@ section.block p{color:var(--ink-soft); max-width:var(--measure); font-size:0.98r
   border-radius:4px; padding:24px; overflow-x:auto;
 }
 .chart-card svg{display:block; width:100%; height:auto;}
+
+/* elements inside a chart card rise + fade in individually, staggered */
+.reveal-child{
+  opacity:0; transform:translateY(36px);
+  transition:opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+}
+.reveal-child.visible{opacity:1; transform:translateY(0);}
 .chart-title{font-family:var(--serif); font-weight:600; font-size:1.05rem; margin-bottom:4px;}
 .chart-legend{display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:0.82rem; color:var(--ink-soft);}
 .chart-legend .item{display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none;}
