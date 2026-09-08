@@ -1,123 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reddit Mental Health Trends in 2021 — Yifan Luo</title>
-    <meta name="description" content="An interactive visualization of Reddit mental health community discussions in 2021, built for SI 649 Information Visualization.">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive exploration of activity, engagement, emotional tone, and language across five Reddit mental-health communities in 2021.">
+  <title>How Do Mental Health Communities Behave on Reddit?</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<nav class="site-nav">
-    <div class="wrap">
-        <span class="nav-name">Yifan Luo</span>
-        <a class="nav-back" href="https://luoyifan-ops.github.io/-yifan2002.github.io/case-reddit.html">← Back to case study</a>
-    </div>
-</nav>
-
-<header class="hero">
-    <div class="wrap">
-        <div class="kicker">SI 649 · Information Visualization</div>
-        <h1>Reddit Mental Health Trends in 2021</h1>
-        <p class="sub">Exploring conversations across Anxiety, Depression, Loneliness, MentalHealth, and SuicideWatch communities.</p>
-        <div class="meta">Data source: <a href="https://www.kaggle.com/datasets/entenam/reddit-mental-health-dataset" target="_blank" rel="noopener">Kaggle — Reddit Mental Health Dataset</a>. Charts rebuilt natively (no Tableau) from the original analysis.</div>
-    </div>
-</header>
-
-<div class="layout">
-
-    <nav class="toc">
-        <h4>Contents</h4>
-        <a href="#sum">Summary</a>
-        <a href="#heatmap">Heatmap</a>
-        <a href="#volume">Volume &amp; Score</a>
-        <a href="#trends">Sentiment Trends</a>
-        <a href="#final">Takeaway</a>
-    </nav>
-
-    <div>
-
-        <section class="block" id="sum" style="border-top:none;">
-            <h2>Executive Summary</h2>
-            <p>
-                In 2021, conversations related to mental health surged across Reddit communities such as Anxiety, Depression, Lonely, MentalHealth, and SuicideWatch. These posts offer a unique window into how people express emotional distress, seek support, and respond to major social stressors throughout the year.
-                This interactive article visualizes one year of Reddit mental health data to uncover three central patterns.
-                First, activity levels rise and fall throughout the year, revealing consistent seasonal shifts.
-                Second, emotional "tone" varies widely across communities, with some spaces showing persistently heavier sentiment while others fluctuate rapidly.
-                Third, communities with high posting volume are not always the ones experiencing the strongest emotional intensity.
-                Together, these visualizations highlight how online mental health discussions evolve over time and how each community contributes differently to the broader emotional landscape of Reddit.
-            </p>
-        </section>
-
-        <section class="block" id="heatmap">
-            <h2>Monthly Emotional Tone Heatmap Across Subreddits</h2>
-            <p>
-                The heatmap reveals how average sentiment changes month by month across five mental health communities.
-                Darker cells indicate posts with heavier, more negative sentiment.
-                Communities like Depression and SuicideWatch show a more consistent presence of heavier emotional expression, while Lonely spikes sharply in specific months and MentalHealth stays comparatively calm.
-                Hover any cell for the exact value.
-            </p>
-            <div class="chart-card">
-                <div class="chart-title reveal-child">Average sentiment score by subreddit, Jan–Dec 2021</div>
-                <div id="chart-heatmap" class="reveal-child"></div>
-                <p class="chart-note reveal-child">Darker = heavier average sentiment that month. Missing month: February (not present in the source data).</p>
-            </div>
-        </section>
-
-        <section class="block" id="volume">
-            <h2>Posting Volume and Emotional Intensity Across Communities</h2>
-            <p>
-                These paired series compare two essential dimensions of Reddit mental health conversations: how often people post, and how emotionally charged those posts are.
-                Total posting volume (bars) stays fairly high and stable through most of the year, dipping only in March.
-                The average sentiment line (gold) tells a different story — it spikes sharply in March even though volume is at its lowest point, showing that posting volume and emotional intensity don't move together.
-            </p>
-            <div class="chart-card">
-                <div class="chart-title reveal-child">Monthly post volume vs. average sentiment score</div>
-                <div id="chart-combo" class="reveal-child"></div>
-                <div class="chart-legend reveal-child">
-                    <div class="item"><span class="swatch" style="background:var(--accent-soft); border:1px solid var(--accent);"></span>Post volume (left axis)</div>
-                    <div class="item"><span class="swatch" style="background:var(--gold);"></span>Avg. sentiment (right axis)</div>
-                </div>
-                <p class="chart-note reveal-child">Hover a bar or point for exact monthly figures.</p>
-            </div>
-        </section>
-
-        <section class="block" id="trends">
-            <h2>Monthly Sentiment Trends by Subreddit</h2>
-            <p>
-                While most communities cluster around lower average sentiment scores — reflecting routine emotional processing — a few months and subreddits stand out.
-                Lonely shows by far the sharpest spikes, in March and again in June, suggesting reactions to acute stressors or seasonal challenges.
-                MentalHealth and Anxiety stay comparatively steady, indicating ongoing support-seeking behavior rather than sudden bursts of emotional intensity.
-            </p>
-            <div class="chart-card">
-                <div class="chart-title reveal-child">Average sentiment score by subreddit, month by month</div>
-                <div id="chart-line" class="reveal-child"></div>
-                <div id="chart-line-legend" class="chart-legend reveal-child"></div>
-                <p class="chart-note reveal-child">Click a name in the legend to isolate that community's line. Hover a point for its exact value.</p>
-            </div>
-        </section>
-
-        <section class="block" id="final">
-            <h2>What This Means for Online Mental Health Communities</h2>
-            <p>
-                Across 2021, Reddit mental health communities showed clear seasonal rhythms, shifting emotional tone, and diverse posting behaviors. Some communities maintained consistently heavy emotional expression, while others fluctuated in response to specific events or periods.
-                These visualizations collectively illustrate how online spaces support individuals navigating stress, crisis, and emotional challenges. Understanding these patterns provides deeper insight into how digital communities respond to human emotional needs throughout the year.
-            </p>
-        </section>
-
-    </div>
-</div>
-
-<footer>
-    <div class="wrap">
-        <p>Created by Yifan Luo for SI 649 Data Visualization.</p>
-        <p>Data source: <a href="https://www.kaggle.com/datasets/entenam/reddit-mental-health-dataset" target="_blank" rel="noopener">Kaggle — Reddit Mental Health Dataset</a></p>
-        <p><a href="https://luoyifan-ops.github.io/-yifan2002.github.io/">← Back to Yifan Luo's portfolio</a></p>
-    </div>
-</footer>
-
-<script src="script.js"></script>
+  <nav class="rail" aria-label="Story sections">
+    <a href="#intro" class="active"><span></span><b>Intro</b></a><a href="#activity"><span></span><b>Activity</b></a><a href="#engagement"><span></span><b>Engagement</b></a><a href="#tone"><span></span><b>Emotional Tone</b></a><a href="#language"><span></span><b>Language</b></a><a href="#methods"><span></span><b>Methods</b></a>
+  </nav>
+  <main>
+    <header id="intro" class="hero observed">
+      <div class="hero-ghost" aria-hidden="true"><span>ANXIETY</span><span>DEPRESSION</span><span>LONELY</span><span>MENTAL HEALTH</span><span>SUICIDEWATCH</span></div>
+      <div class="hero-content reveal"><p class="eyebrow">Reddit Mental Health Analytics</p><h1>How Do Mental Health Communities Behave on Reddit?</h1><p class="dek">An interactive exploration of activity, engagement, emotional tone, and language across five mental-health communities in 2021.</p><div class="metadata" aria-label="Dataset summary"><span>578K posts</span><span>5 communities</span><span>12 months</span><span>Reddit</span><span>2021</span></div><a class="down" href="#activity">Explore the data <span>↓</span></a></div>
+    </header>
+    <section id="activity" class="chapter observed">
+      <div class="chapter-copy reveal"><p class="number">01 / Activity</p><h2>When were people talking?</h2><p>Posting activity varied substantially across communities and across the year. Color represents monthly post count.</p><div class="key-note"><b>Missing source coverage</b><p>Depression × May is unavailable. The patterned cell is not zero.</p></div></div>
+      <figure class="chart-card reveal"><div class="chart-heading"><h3>Monthly posting activity</h3><span>Post count</span></div><div id="activity-chart" class="chart" aria-label="Heatmap of monthly post counts by subreddit"></div><figcaption>Darker cells represent more posts. Hover, focus, or tap for exact values.</figcaption></figure>
+    </section>
+    <section id="engagement" class="chapter observed">
+      <div class="chapter-copy reveal"><p class="number">02 / Engagement</p><h2>More conversation did not necessarily mean more engagement.</h2><p>Each point represents one community in one month. Reddit score is an upvote-based engagement measure, not sentiment.</p><div class="annotation"><b>February stands out.</b><p>Average scores rose across several communities while every median remained 1. A small number of highly scored posts may be pulling the means upward.</p></div></div>
+      <figure class="chart-card reveal"><div class="chart-heading"><h3>Activity vs. average Reddit score</h3><span>59 community-months</span></div><div id="engagement-filters" class="tabs" role="group" aria-label="Filter engagement chart by community"></div><div id="engagement-chart" class="chart" aria-label="Scatterplot of post count and average Reddit score"></div><figcaption>February points are outlined. Axes stay fixed when filtering communities.</figcaption></figure>
+    </section>
+    <section id="tone" class="chapter observed">
+      <div class="chapter-copy reveal"><p class="number">03 / Emotional Tone</p><h2>Activity and emotional tone were different signals.</h2><p>Monthly sentiment summarizes language in post text. More negative values indicate more negative language, not a clinical mental-health outcome.</p><aside id="community-summary" class="summary-panel" aria-live="polite"></aside></div>
+      <figure class="chart-card reveal"><div class="chart-heading"><h3>Monthly average sentiment</h3><span>Text-derived score</span></div><div id="sentiment-filters" class="tabs" role="group" aria-label="Filter sentiment chart by community"></div><div id="sentiment-chart" class="chart" aria-label="Line chart of monthly average sentiment by subreddit"></div><figcaption>Depression × May is absent from the source. Its line contains a gap rather than an interpolated value.</figcaption></figure>
+    </section>
+    <section id="language" class="chapter observed">
+      <div class="chapter-copy reveal"><p class="number">04 / Language</p><h2>Five communities, five vocabularies.</h2><p>TF-IDF highlights terms that were relatively distinctive within each community.</p><p class="key-note"><b>Distinctive does not mean most frequent.</b> TF-IDF emphasizes words that are more characteristic of one community relative to the others.</p></div>
+      <figure class="chart-card reveal"><div class="chart-heading"><h3>Distinctive terms by community</h3><span>Top 10 of 30</span></div><div id="language-filters" class="tabs" role="group" aria-label="Choose a community for distinctive terms"></div><div id="tfidf-chart" class="chart" aria-label="Ranked TF-IDF terms for the selected subreddit"></div><figcaption>Terms are shown exactly as provided in the final cleaned dataset.</figcaption></figure>
+    </section>
+    <section id="methods" class="methods observed">
+      <div class="methods-head reveal"><p class="number">Methods</p><h2>How to read the measures</h2></div>
+      <div class="accordions reveal"><details open><summary>Data</summary><p>Posts from Anxiety, Depression, Lonely, MentalHealth, and SuicideWatch were aggregated by month across 2021. The analysis contains 578,454 posts with source coverage.</p></details><details><summary>Activity</summary><p><code>post_count</code> measures how many posts appeared in each community and month. It does not measure engagement, sentiment, or distress.</p></details><details><summary>Engagement</summary><p>Reddit score is the original upvote-based post score. Average score is sensitive to a small number of high-score posts; median score describes the middle post.</p></details><details><summary>Sentiment</summary><p>Sentiment was computed from post text and aggregated monthly. It is an approximate measure of language and is not a clinical assessment of users or communities.</p></details><details><summary>Language</summary><p>TF-IDF was calculated after stopword, platform-noise, minimum-frequency, and minimum-document-frequency filtering. A high value indicates relative distinctiveness, not necessarily high overall frequency.</p></details><details><summary>Missing data</summary><p>Depression × May 2021 is unavailable in the final source datasets. The heatmap shows a patterned missing cell, the scatterplot omits the point, and the sentiment line shows a gap.</p></details></div>
+    </section>
+    <footer class="closing"><p>Activity, engagement, and emotional tone told different stories.</p><h2>Looking at any one signal alone would miss important differences across communities.</h2><a href="../index.html">View full Reddit Mental Health Analytics Project <span>→</span></a><small>Originally developed in SI 649: Information Visualization, University of Michigan</small></footer>
+  </main>
+  <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script><script src="app.js"></script>
 </body>
 </html>
